@@ -2,7 +2,8 @@
 **/.idea
 
 **/.metadata
-
+RemoteSystemsTempFiles/
+Servers/
 
 **/target
 **/out/
