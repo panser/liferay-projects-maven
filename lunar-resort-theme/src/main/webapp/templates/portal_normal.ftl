@@ -12,15 +12,13 @@
 	${theme.include(top_head_include)}
 </head>
 
-<body class="${css_class}">
+<body class="${css_class} dockbar-split">
 
 <a href="#main-content" id="skip-to-content"><@liferay.language key="skip-to-content" /></a>
 
 ${theme.include(body_top_include)}
 
-<#if is_signed_in>
-	<@liferay.dockbar />
-</#if>
+<@liferay.dockbar />
 
 <div class="container-fluid" id="wrapper">
 	<header id="banner" role="banner">
@@ -41,10 +39,6 @@ ${theme.include(body_top_include)}
 				<span>${the_title}</span>
 			</h2>
 		</div>
-
-		<#if !is_signed_in>
-			<a href="${sign_in_url}" data-redirect="${is_login_redirect_required?string}" id="sign-in" rel="nofollow">${sign_in_text}</a>
-		</#if>
 
 		<#if has_navigation || is_signed_in>
 			<#include "${full_templates_path}/navigation.ftl" />
@@ -70,6 +64,14 @@ ${theme.include(body_top_include)}
 			<@liferay.language key="powered-by" /> <a href="http://www.liferay.com" rel="external">Liferay</a>
 		</p>
 	</footer>
+
+    <#if the_title != "Reservation">
+        <div id="reserveBtnWrapper">
+            <span id="reserveBtn">
+            <a href="/web/guest/reservation">Make Your Reservation!</a>
+            </span>
+        </div>
+    </#if>
 </div>
 
 ${theme.include(body_bottom_include)}
